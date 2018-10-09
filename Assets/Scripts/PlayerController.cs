@@ -26,7 +26,11 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-        body2D.AddForce(movement * speed);
+
+        if (Input.GetKeyDown("space"))
+            body2D.AddForce(movement * speed * 50);
+        else
+            body2D.AddForce(movement * speed);
 
     }
 
